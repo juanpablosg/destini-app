@@ -8,15 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
-    @IBOutlet weak var storyLabel: UILabel!
-    @IBOutlet weak var choice1Button: UIButton!
-    @IBOutlet weak var choice2Button: UIButton!
+    @IBOutlet private weak var storyLabel: UILabel!
+    @IBOutlet private weak var choice1Button: UIButton!
+    @IBOutlet private weak var choice2Button: UIButton!
     
-    var storyBrain = StoryBrain()
+    private var storyBrain = StoryBrain()
     
-    @IBAction func choiceMade(_ sender: UIButton) {
+    @IBAction private func choiceMade(_ sender: UIButton) {
         
         storyBrain.nextStory(.choice1)
         updateUI()
@@ -31,7 +31,7 @@ class ViewController: UIViewController {
 
     }
     
-    func updateUI() {
+    private func updateUI() {
         storyLabel.text = storyBrain.currentStory.title
         choice1Button.setTitle(storyBrain.currentStory.choice1, for: .normal)
         choice2Button.setTitle(storyBrain.currentStory.choice2, for: .normal)
